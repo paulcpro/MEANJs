@@ -1,0 +1,10 @@
+server/app.js
+server/node_modules/*
+server/images/*
+
+client/node_modules/*
+client/.vscode/*
+client/angular.json
+client/karma.conf.js
+
+
