@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ProjetTile } from 'src/app/core/models/projet-tile.model';
+import { ProjetTilesService } from 'src/app/core/services/projet-tiles.service';
 
 @Component({
   selector: 'app-projet-tile-list',
@@ -6,12 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./projet-tile-list.component.scss']
 })
 export class ProjetTileListComponent implements OnInit {
-  snapActualities!: ProjetTile[];
+  projetTiles$!: Observable<ProjetTile[]>;
 
-  constructor(private snapActualityService: ProjetTileService) { }
+  constructor(private projetTilesService: ProjetTilesService) { }
 
   ngOnInit(): void {
-    this.snapActualities = this.snapActualityService.getAllFaceSnaps();
+    this.projetTiles$ = this.projetTilesService.getAllFaceSnaps();
   }
 
 }
