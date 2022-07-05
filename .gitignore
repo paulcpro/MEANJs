@@ -1,3 +1,6 @@
+.git
+meanjs.code-workspace
+
 server/app.js
 server/node_modules/*
 server/images/*

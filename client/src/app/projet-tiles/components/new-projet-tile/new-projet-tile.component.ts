@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { map, Observable, tap } from 'rxjs';
+import { ProjetTile } from 'src/app/core/models/projet-tile.model';
+import { ProjetTilesService } from 'src/app/core/services/projet-tiles.service';
 
 @Component({
   selector: 'app-new-projet-tile',
@@ -8,37 +13,27 @@ import { Component, OnInit } from '@angular/core';
 export class NewProjetTileComponent implements OnInit {
 
   snapForm!: FormGroup;
-  faceSnapPreview$!: Observable<FaceSnap>;
+  faceSnapPreview$!: Observable<ProjetTile>;
   pattern!: RegExp;
 
   constructor(private formBuilder: FormBuilder,
     private route: Router,
-    private service: FaceSnapsService) { }
+    private service: ProjetTilesService) { }
 
   ngOnInit(): void {
     this.pattern = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/;
 
-    //Récupération des données du formBuilder en formGroup
     this.snapForm = this.formBuilder.group({
-      //On Appel Validators.required pour exiger l'entrée de cette information par l'utilisateur
       title: [null, Validators.required],
       description: [null, Validators.required],
-      //On mettra Validators.pattern pour mettre notre RegExp
       imageUrl: [null, [Validators.required, Validators.pattern(this.pattern)]],
       location: [null]
     }, {
-      updateOn: 'blur' //Permet d'attendre que l'utilisateur finisse d'écrire dans le champs
-      //Pour afficher la valeur (évite l'erreur du champs email)
+      updateOn: 'blur'
     })
 
-    //Emission Observable FaceSnap
-    //On attribue les valeurs de notre snapForm au faceSnapPreview
     this.faceSnapPreview$ = this.snapForm.valueChanges.pipe(
-      //On va modifier la snapForm en rajoutant les champs manquant du FaceSnap
-      //Pour que l'Observable émette un FaceSnap
-      //Modification de l'observable
       map(formValue => ({
-        //Récupère tous les champs du snapForm
         ...formValue,
         createDate: new Date(),
         snaps: 0,
@@ -49,13 +44,9 @@ export class NewProjetTileComponent implements OnInit {
 
   onSubmitForm() {
     console.log(this.snapForm.value);
-    //Version avec le serveur
     this.service.addFaceSnapFromForm(this.snapForm.value).pipe(
-      //Permet de savoir qu'on a eu une émission de l'ajout (sideEffect)
       tap(() => this.route.navigateByUrl('/facesnaps'))
       ).subscribe();
-    // this.service.addFaceSnapFromForm(this.snapForm.value);
-    // this.route.navigateByUrl('/facesnaps');
 }
 
 }

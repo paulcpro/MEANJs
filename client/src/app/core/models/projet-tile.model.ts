@@ -1,5 +1,4 @@
-
-export class FaceSnap {
+export class ProjetTile {
   id!: number;
   title!: string;
   description!: string;
