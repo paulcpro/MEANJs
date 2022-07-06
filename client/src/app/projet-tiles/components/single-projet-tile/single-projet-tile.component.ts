@@ -23,15 +23,4 @@ export class SingleProjetTileComponent implements OnInit {
     this.projetTile$ = this.projetTileService.getFaceSnapById(snapId);
   }
 
-  onSnap(faceSnapId: number) {
-    if(this.buttonText === "Oh Snap!") {
-      this.projetTile$ = this.projetTileService.snapFaceSnapById(faceSnapId, 'snap').pipe(
-        tap(() => this.buttonText = "Oops, unSnap"));
-    } else{
-      this.projetTile$ = this.projetTileService.snapFaceSnapById(faceSnapId, 'unSnap').pipe(
-        tap(() => this.buttonText = "Oh Snap!")
-        );
-    }
-
-  }
 }
