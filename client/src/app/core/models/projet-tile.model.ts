@@ -6,4 +6,5 @@ export class ProjetTile {
   createDate!: Date;
   snaps!: number;
   location?: string;
+  category?: string;
 }

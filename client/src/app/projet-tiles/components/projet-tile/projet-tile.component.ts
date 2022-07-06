@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProjetTile } from 'src/app/core/models/projet-tile.model';
-import { ProjetTilesService } from 'src/app/core/services/projet-tiles.service';
 
 @Component({
   selector: 'app-projet-tile',
@@ -14,8 +13,7 @@ export class ProjetTileComponent implements OnInit {
 
   buttonText!: string;
 
-  constructor(private router: Router,
-    private projetTileService: ProjetTilesService) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.buttonText = "Voir plus";
