@@ -9,15 +9,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
-    BrowserModule,
-    CoreModule,
-    AuthModule,
-    LandingPageModule,
-    AppRoutingModule
-  ],
+    AppComponent
+    ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CoreModule,
+    BrowserModule,
+    AuthModule,
+    LandingPageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

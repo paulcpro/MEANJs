@@ -11,9 +11,7 @@ export class AppComponent {
   redTrainsCalled = 0;
   yellowTrainsCalled = 0;
 
-  // *** Opérateurs haut niveau ***
-  ngOnInit() {
-  }
+  ngOnInit() {  }
 
   getTrainObservable$(color: 'rouge' | 'jaune') {
     const isRedTrain = color === 'rouge';
@@ -21,7 +19,7 @@ export class AppComponent {
     const trainIndex = isRedTrain ? this.redTrainsCalled : this.yellowTrainsCalled;
     console.log(`Train %c${color} ${trainIndex} appelé !`, `text-decoration: underline; color: ${this.translateColor(color)}`);
     return of({ color, trainIndex }).pipe(
-      delay(isRedTrain ? 5000 : 6000) //Appel tous les 5000ms pour le rouge et 6000ms pour le jaune
+      delay(isRedTrain ? 5000 : 6000)
     );
   }
   translateColor(color: 'rouge' | 'jaune') {
