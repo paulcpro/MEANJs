@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
-const faceSnapSchema = mongoose.Schema({
-        // En typescript on peut éviter de tout déclarer grâce au mot clé public (voir constructeur)
+const projetTileSchema = mongoose.Schema({
         id: { type: Number, required: true },
         title: { type: String, required: true },
         description: { type: String, required: true },
@@ -9,6 +8,7 @@ const faceSnapSchema = mongoose.Schema({
         createDate: { type: Date, required: true },
         snaps: { type: Number, required: true },
         location: { type: String, required: true },
+        category: { type: String, required: false }
 }) 
 
-module.exports = mongoose.model('Facesnap', faceSnapSchema);
+module.exports = mongoose.model('Facesnap', projetTileSchema);
