@@ -1,25 +1,25 @@
 const fs = require('fs');
-const Facesnap = require('../models/Facesnap');
+const Projettile = require('../models/ProjetTile');
 
 exports.createThing = (req, res, next) => {
-    const facesnapObject = JSON.parse(req.body.facesnap);
-    delete facesnapObject._id;
-    const facesnap = new Facesnap({
-      ...thifacesnapObjectngObject,
+    const projettileObject = JSON.parse(req.body.projettile);
+    delete projettileObject._id;
+    const projettile = new Projettile({
+      ...thiprojettileObjectngObject,
       imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
     });
-    facesnap.save()
-      .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
+    projettile.save()
+      .then(() => res.status(201).json({ message: 'Object saved !'}))
       .catch(error => res.status(400).json({ error }));
   };
 
 exports.deleteThing = (req, res, next) => {
-  Facesnap.findOne({ _id: req.params.id })
-    .then(facesnap => {
-    const filename = facesnap.imageUrl.split('/images/')[1];
+  Projettile.findOne({ _id: req.params.id })
+    .then(projettile => {
+    const filename = projettile.imageUrl.split('/images/')[1];
     fs.unlink(`images/${filename}`, () => {
-      Facesnap.deleteOne({ _id: req.params.id })
-        .then(() => res.status(200).json({ message: 'Objet supprimé !'}))
+      Projettile.deleteOne({ _id: req.params.id })
+        .then(() => res.status(200).json({ message: 'Object saved !'}))
         .catch(error => res.status(400).json({ error }));
     });
     })
@@ -28,22 +28,22 @@ exports.deleteThing = (req, res, next) => {
 
 
 exports.modifyThing = (req, res, next) => {
-const facesnapObject = req.file ?
+const projettileObject = req.file ?
     {
-    ...JSON.parse(req.body.facesnap),
+    ...JSON.parse(req.body.projettile),
     imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
     } : { ...req.body };
-    Facesnap.updateOne({ _id: req.params.id }, { ...facesnapObject, _id: req.params.id })
-    .then(() => res.status(200).json({ message: 'Objet modifié !'}))
+    Projettile.updateOne({ _id: req.params.id }, { ...projettileObject, _id: req.params.id })
+    .then(() => res.status(200).json({ message: 'Object modified !'}))
     .catch(error => res.status(400).json({ error }));
 };
 
 exports.getOneThing = (req, res, next) => {
-  Facesnap.findOne({
+  Projettile.findOne({
     _id: req.params.id
   }).then(
-    (facesnap) => {
-      res.status(200).json(facesnap);
+    (projettile) => {
+      res.status(200).json(projettile);
     }
   ).catch(
     (error) => {
@@ -55,9 +55,9 @@ exports.getOneThing = (req, res, next) => {
 };
 
 exports.getAllStuff = (req, res, next) => {
-  Facesnap.find().then(
-    (facesnaps) => {
-      res.status(200).json(facesnaps);
+  Projettile.find().then(
+    (projettiles) => {
+      res.status(200).json(projettiles);
     }
   ).catch(
     (error) => {
