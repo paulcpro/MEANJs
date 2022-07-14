@@ -1,18 +1,16 @@
 <div class="form-card">
-  <h2>NOUVEAU FACESNAP</h2>
-  <!-- On lie le formulaire à notre formGroup se trouvant dans le TypeScript -->
-  <form [formGroup]="snapForm">
+  <h2>New Projet Tile</h2>
+  <form [formGroup]="projetForm">
     <div class="form-group">
-      <label for="title">Titre</label>
+      <label for="title">Title</label>
       <input id="title" type="text" formControlName="title">
     </div>
     <div class="form-group">
       <label for="description">Description</label>
-      <!-- formControlName va lier notre donnée côté TypeScript avec l'HTML -->
       <textarea id="description" type="text" formControlName="description" rows="4"></textarea>
     </div>
     <div class="form-group">
-      <label for="imageUrl">Image Url</label>
+      <label for="imageUrl">Url Image</label>
       <input id="imageUrl" type="text" formControlName="imageUrl">
     </div>
     <div class="form-group">
@@ -20,16 +18,14 @@
       <input id="location" type="text" formControlName="location">
     </div>
     <div class="action-buttons">
-      <!-- Ajout du [disabled] tant que le snapForm reste invalid -->
-      <!-- Les champs ayant Validators.required doivent être remplis -->
-      <button type="submit" (click)="onSubmitForm()" [disabled]="snapForm.invalid">Enregistrer</button>
+      <button type="submit" (click)="onSubmitForm()" [disabled]="projetForm.invalid">Save</button>
     </div>
   </form>
 </div>
-<div class="face-snap-card" *ngIf="faceSnapPreview$ | async as faceSnap">
-  <h2>{{ faceSnap.title | uppercase }}</h2>
-  <p>Mis en ligne {{ faceSnap.createDate | date: 'à HH:mm, le d MMMM yyyy' }}</p>
-  <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
-  <p>{{ faceSnap.description }}</p>
-  <p *ngIf="faceSnap.location">Photo prise à {{ faceSnap.location }}</p>
+<div class="face-snap-card" *ngIf="projetTilePreview$ | async as projetTile">
+  <h2>{{ projetTile.title | uppercase }}</h2>
+  <p>Publied the {{ projetTile.createDate | date: 'at HH:mm, the d MMMM yyyy' }}</p>
+  <img [src]="projetTile.imageUrl" [alt]="projetTile.title">
+  <p>{{ projetTile.description }}</p>
+  <p *ngIf="projetTile.location">Photoshoted at {{ projetTile.location }}</p>
 </div>

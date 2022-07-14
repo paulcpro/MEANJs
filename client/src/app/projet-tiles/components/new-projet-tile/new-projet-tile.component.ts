@@ -12,8 +12,8 @@ import { ProjetTilesService } from 'src/app/core/services/projet-tiles.service';
 })
 export class NewProjetTileComponent implements OnInit {
 
-  snapForm!: FormGroup;
-  faceSnapPreview$!: Observable<ProjetTile>;
+  projetForm!: FormGroup;
+  projetTilePreview$!: Observable<ProjetTile>;
   pattern!: RegExp;
 
   constructor(private formBuilder: FormBuilder,
@@ -23,7 +23,7 @@ export class NewProjetTileComponent implements OnInit {
   ngOnInit(): void {
     this.pattern = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/;
 
-    this.snapForm = this.formBuilder.group({
+    this.projetForm = this.formBuilder.group({
       title: [null, Validators.required],
       description: [null, Validators.required],
       imageUrl: [null, [Validators.required, Validators.pattern(this.pattern)]],
@@ -32,7 +32,7 @@ export class NewProjetTileComponent implements OnInit {
       updateOn: 'blur'
     })
 
-    this.faceSnapPreview$ = this.snapForm.valueChanges.pipe(
+    this.projetTilePreview$ = this.projetForm.valueChanges.pipe(
       map(formValue => ({
         ...formValue,
         createDate: new Date(),
@@ -43,9 +43,9 @@ export class NewProjetTileComponent implements OnInit {
   }
 
   onSubmitForm() {
-    console.log(this.snapForm.value);
-    this.service.addFaceSnapFromForm(this.snapForm.value).pipe(
-      tap(() => this.route.navigateByUrl('/facesnaps'))
+    console.log(this.projetForm.value);
+    this.service.addFaceSnapFromForm(this.projetForm.value).pipe(
+      tap(() => this.route.navigateByUrl('/projettiles'))
       ).subscribe();
 }
 
