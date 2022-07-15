@@ -42,11 +42,12 @@ export class NewProjetTileComponent implements OnInit {
     );
   }
 
-  onSubmitForm() {
+  onSubmitForm()
+  {
     console.log(this.projetForm.value);
     this.service.addFaceSnapFromForm(this.projetForm.value).pipe(
       tap(() => this.route.navigateByUrl('/projettiles'))
       ).subscribe();
-}
+  }
 
 }

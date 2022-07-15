@@ -5,10 +5,12 @@ import * as fr from '@angular/common/locales/fr';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
+import { SliderComponent } from '../sliders/components/slider/slider.component';
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    SliderComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { HeaderComponent } from './components/header/header.component';
     HttpClientModule
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    SliderComponent
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr-FR' },

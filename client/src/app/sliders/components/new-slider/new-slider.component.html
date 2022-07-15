@@ -1,0 +1,28 @@
+<div class="form-card">
+  <h2>New Projet Tile</h2>
+  <form [formGroup]="projetForm">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input id="title" type="text" formControlName="title">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" type="text" formControlName="description" rows="4"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="imageUrl">Url Image</label>
+      <input id="imageUrl" type="text" formControlName="imageUrl">
+    </div>
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input id="location" type="text" formControlName="location">
+    </div>
+    <div class="action-buttons">
+      <button type="submit" (click)="onSubmitForm()" [disabled]="projetForm.invalid">Save</button>
+    </div>
+  </form>
+</div>
+<div class="face-snap-card" *ngIf="sliderPreview$ | async as slider">
+  <img [src]="slider.imageUrl" [alt]="slider.title">
+  <p>{{ slider.description }}</p>
+</div>

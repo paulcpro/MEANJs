@@ -16,7 +16,7 @@ export class ProjetTileComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.buttonText = "Voir plus";
+    this.buttonText = "See more";
   }
 
   onViewFaceSnap() {

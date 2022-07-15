@@ -6,10 +6,14 @@ import { CoreModule } from './core/core.module';
 import { LandingPageModule } from './landing-page/landing-page.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { AuthModule } from './auth/auth.module';
+import { SliderComponent } from './src/app/core/components/slider/slider.component';
+import { NewSliderComponent } from './slider/components/new-slider/new-slider.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SliderComponent,
+    NewSliderComponent
     ],
   imports: [
     AppRoutingModule,
