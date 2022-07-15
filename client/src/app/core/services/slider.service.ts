@@ -34,7 +34,7 @@ export class SliderService {
           id: previousSlider.id + 1
         })),
         switchMap(newSlider =>
-            this.http.post<Slider>(`http://localhost:3000/projettiles/`, newSlider)
+            this.http.post<Slider>(`http://localhost:3000/sliders/`, newSlider)
           )
       );
     }

@@ -4,9 +4,9 @@ import { Slider } from 'src/app/core/models/slider.model';
 import { SliderService } from 'src/app/core/services/slider.service';
 
 @Component({
-  selector: 'app-projet-tile-list',
-  templateUrl: './projet-tile-list.component.html',
-  styleUrls: ['./projet-tile-list.component.scss']
+  selector: 'app-slider-list',
+  templateUrl: './slider-list.component.html',
+  styleUrls: ['./slider-list.component.scss']
 })
 export class ProjetTileListComponent implements OnInit {
   sliders$!: Observable<Slider[]>;
