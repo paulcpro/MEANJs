@@ -1,1 +1,27 @@
-<p>new-profile works!</p>
+<div class="form-card">
+  <h2>New Projet Tile</h2>
+  <form [formGroup]="projetForm">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input id="title" type="text" formControlName="title">
+    </div>
+    <div class="form-group">
+      <label for="imageUrl">Url Image</label>
+      <input id="imageUrl" type="text" formControlName="imageUrl">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" type="text" formControlName="description" rows="4"></textarea>
+    </div>
+    <div class="action-buttons">
+      <button type="submit" (click)="onSubmitForm()" [disabled]="projetForm.invalid">Save</button>
+    </div>
+  </form>
+</div>
+<div class="face-snap-card" *ngIf="projetTilePreview$ | async as projetTile">
+  <h2>{{ projetTile.title | uppercase }}</h2>
+  <p>Publied the {{ projetTile.createDate | date: 'at HH:mm, the d MMMM yyyy' }}</p>
+  <img [src]="projetTile.imageUrl" [alt]="projetTile.title">
+  <p>{{ projetTile.description }}</p>
+  <p *ngIf="projetTile.location">Photoshoted at {{ projetTile.location }}</p>
+</div>
