@@ -12,8 +12,8 @@ import { ProfileService } from 'src/app/core/services/profile.service';
 })
 export class NewProfileComponent implements OnInit {
 
-  projetForm!: FormGroup;
-  projetTilePreview$!: Observable<Profile>;
+  profilePreview$!: Observable<Profile>;
+  profileForm!: FormGroup;
   pattern!: RegExp;
 
   constructor(private formBuilder: FormBuilder,
@@ -23,16 +23,16 @@ export class NewProfileComponent implements OnInit {
   ngOnInit(): void {
     this.pattern = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/;
 
-    this.projetForm = this.formBuilder.group({
+    this.profileForm = this.formBuilder.group({
       title: [null, Validators.required],
-      description: [null, Validators.required],
-      imageUrl: [null, [Validators.required, Validators.pattern(this.pattern)]],
-      location: [null]
+      name: [null, Validators.required],
+      surname: [null, Validators.required],
+      imageUrl: [null, [Validators.required, Validators.pattern(this.pattern)]]
     }, {
       updateOn: 'blur'
     })
 
-    this.projetTilePreview$ = this.projetForm.valueChanges.pipe(
+    this.profilePreview$ = this.profileForm.valueChanges.pipe(
       map(formValue => ({
         ...formValue,
         id: 0
@@ -42,8 +42,8 @@ export class NewProfileComponent implements OnInit {
 
   onSubmitForm()
   {
-    console.log(this.projetForm.value);
-    this.service.addFaceSnapFromForm(this.projetForm.value).pipe(
+    console.log(this.profileForm.value);
+    this.service.addFaceSnapFromForm(this.profileForm.value).pipe(
       tap(() => this.route.navigateByUrl('/profiles'))
       ).subscribe();
   }

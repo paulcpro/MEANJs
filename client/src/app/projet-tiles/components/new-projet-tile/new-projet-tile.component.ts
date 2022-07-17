@@ -35,8 +35,6 @@ export class NewProjetTileComponent implements OnInit {
     this.projetTilePreview$ = this.projetForm.valueChanges.pipe(
       map(formValue => ({
         ...formValue,
-        createDate: new Date(),
-        snaps: 0,
         id: 0
       }))
     );
