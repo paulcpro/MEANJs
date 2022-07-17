@@ -1,0 +1,7 @@
+<div *ngIf="profile$ | async as profile">
+  <p>Single Profile</p>
+  <h2>{{profile.title | titlecase }}</h2>
+  <a routerLink="/profiles">Back</a>
+  <img [src]="profile.imageUrl" [alt]="profile.title">
+  <p>{{profile.description}}</p>
+</div>
