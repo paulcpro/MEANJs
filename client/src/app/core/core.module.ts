@@ -9,8 +9,7 @@ import { SliderComponent } from '../sliders/components/slider/slider.component';
 
 @NgModule({
   declarations: [
-    HeaderComponent,
-    SliderComponent
+    HeaderComponent
   ],
   imports: [
     CommonModule,
@@ -18,8 +17,7 @@ import { SliderComponent } from '../sliders/components/slider/slider.component';
     HttpClientModule
   ],
   exports: [
-    HeaderComponent,
-    SliderComponent
+    HeaderComponent
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr-FR' },

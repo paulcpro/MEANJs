@@ -4,6 +4,8 @@ import { LandingPageComponent } from './landing-page/components/landing-page-com
 
 const routes: Routes = [
   { path: 'projettiles', loadChildren: () => import('./projet-tiles/projet-tiles.module').then(m => m.ProjetTilesModule),},
+  { path: 'profiles', loadChildren: () => import('./profile/profiles.module').then(m => m.ProfilesModule),},
+  { path: 'sliders', loadChildren: () => import('./sliders/sliders.module').then(m => m.SlidersModule),},
   { path: '', component: LandingPageComponent } //path = chemin vers où on route soit : localhost/facesnaps / component = le component à afficher
 ];
 

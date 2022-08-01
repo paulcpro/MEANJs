@@ -1,10 +1,6 @@
 <div class="form-card">
   <h2>New Slider</h2>
-  <form [formGroup]="projetForm">
-    <div class="form-group">
-      <label for="title">Title</label>
-      <input id="title" type="text" formControlName="title">
-    </div>
+  <form [formGroup]="sliderForm">
     <div class="form-group">
       <label for="description">Description</label>
       <textarea id="description" type="text" formControlName="description" rows="4"></textarea>
@@ -13,16 +9,12 @@
       <label for="imageUrl">Url Image</label>
       <input id="imageUrl" type="text" formControlName="imageUrl">
     </div>
-    <div class="form-group">
-      <label for="location">Location</label>
-      <input id="location" type="text" formControlName="location">
-    </div>
     <div class="action-buttons">
-      <button type="submit" (click)="onSubmitForm()" [disabled]="projetForm.invalid">Save</button>
+      <button type="submit" (click)="onSubmitForm()" [disabled]="sliderForm.invalid">Save</button>
     </div>
   </form>
 </div>
 <div class="face-snap-card" *ngIf="sliderPreview$ | async as slider">
-  <img [src]="slider.imageUrl" [alt]="slider.title">
+  <img [src]="slider.imageUrl" [alt]="slider.description">
   <p>{{ slider.description }}</p>
 </div>

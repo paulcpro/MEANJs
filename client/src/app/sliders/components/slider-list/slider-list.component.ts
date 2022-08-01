@@ -8,7 +8,7 @@ import { SliderService } from 'src/app/core/services/slider.service';
   templateUrl: './slider-list.component.html',
   styleUrls: ['./slider-list.component.scss']
 })
-export class ProjetTileListComponent implements OnInit {
+export class SliderListComponent implements OnInit {
   sliders$!: Observable<Slider[]>;
 
   constructor(private slidersService: SliderService) { }

@@ -1,6 +1,6 @@
 <div class="form-card">
   <h2>New Profile</h2>
-  <form [formGroup]="projetForm">
+  <form [formGroup]="profileForm">
     <div class="form-group">
       <label for="title">Title</label>
       <input id="title" type="text" formControlName="title">
@@ -18,7 +18,7 @@
       <textarea id="surname" type="text" formControlName="surname" rows="4"></textarea>
     </div>
     <div class="action-buttons">
-      <button type="submit" (click)="onSubmitForm()" [disabled]="projetForm.invalid">Save</button>
+      <button type="submit" (click)="onSubmitForm()" [disabled]="profileForm.invalid">Save</button>
     </div>
   </form>
 </div>

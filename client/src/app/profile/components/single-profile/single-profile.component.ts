@@ -9,18 +9,18 @@ import { ProfileService } from 'src/app/core/services/profile.service';
   templateUrl: './single-profile.component.html',
   styleUrls: ['./single-profile.component.scss']
 })
-export class SingleProjetTileComponent implements OnInit {
+export class SingleProfileComponent implements OnInit {
 
   buttonText!: string;
   profile$!: Observable<Profile>;
 
   constructor(private route: ActivatedRoute,
-              private projetTileService: ProfileService) { }
+              private profileService: ProfileService) { }
 
   ngOnInit(): void {
     this.buttonText = "Oh Snap!";
     const snapId = +this.route.snapshot.params['id'];
-    this.profile$ = this.projetTileService.getFaceSnapById(snapId);
+    this.profile$ = this.profileService.getFaceSnapById(snapId);
   }
 
 }
