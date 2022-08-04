@@ -4,4 +4,5 @@ export class Profile {
   surname!: string;
   title!: string;
   imageUrl!: string;
+  
 }
