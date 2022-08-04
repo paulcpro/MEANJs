@@ -1,14 +1,11 @@
 const mongoose = require('mongoose');
 
-const projetTileSchema = mongoose.Schema({
+const profileSchema = mongoose.Schema({
         id: { type: Number, required: true },
-        title: { type: String, required: true },
-        description: { type: String, required: true },
+        name: { type: String, required: true },
+        surname: { type: String, required: true },
         imageUrl: { type: String, required: true },
-        createDate: { type: Date, required: true },
-        snaps: { type: Number, required: true },
-        location: { type: String, required: true },
-        category: { type: String, required: false }
+        title: { type: Date, required: true }
 }) 
 
-module.exports = mongoose.model('Facesnap', projetTileSchema);
+module.exports = mongoose.model('Facesnap', profileSchema);

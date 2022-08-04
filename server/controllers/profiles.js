@@ -1,20 +1,20 @@
 const fs = require('fs');
-const Projettile = require('../models/Profile');
+const Profile = require('../models/Profile');
 
 exports.createThing = (req, res, next) => {
-    const projettileObject = JSON.parse(req.body.projettile);
-    delete projettileObject._id;
-    const projettile = new Projettile({
-      ...thiprojettileObjectngObject,
+    const profileObject = JSON.parse(req.body.projettile);
+    delete profileObject._id;
+    const profile = new Projettile({
+      ...profileObject,
       imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
     });
-    projettile.save()
+    profile.save()
       .then(() => res.status(201).json({ message: 'Object saved !'}))
       .catch(error => res.status(400).json({ error }));
   };
 
 exports.deleteThing = (req, res, next) => {
-  Projettile.findOne({ _id: req.params.id })
+  Profile.findOne({ _id: req.params.id })
     .then(projettile => {
     const filename = projettile.imageUrl.split('/images/')[1];
     fs.unlink(`images/${filename}`, () => {
@@ -28,22 +28,22 @@ exports.deleteThing = (req, res, next) => {
 
 
 exports.modifyThing = (req, res, next) => {
-const projettileObject = req.file ?
+const profileObject = req.file ?
     {
-    ...JSON.parse(req.body.projettile),
+    ...JSON.parse(req.body.profileObject),
     imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
     } : { ...req.body };
-    Projettile.updateOne({ _id: req.params.id }, { ...projettileObject, _id: req.params.id })
+    Profile.updateOne({ _id: req.params.id }, { ...profileObject, _id: req.params.id })
     .then(() => res.status(200).json({ message: 'Object modified !'}))
     .catch(error => res.status(400).json({ error }));
 };
 
 exports.getOneThing = (req, res, next) => {
-  Projettile.findOne({
+  Profile.findOne({
     _id: req.params.id
   }).then(
-    (projettile) => {
-      res.status(200).json(projettile);
+    (profile) => {
+      res.status(200).json(profile);
     }
   ).catch(
     (error) => {
@@ -55,9 +55,9 @@ exports.getOneThing = (req, res, next) => {
 };
 
 exports.getAllStuff = (req, res, next) => {
-  Projettile.find().then(
-    (projettiles) => {
-      res.status(200).json(projettiles);
+  Profile.find().then(
+    (profile) => {
+      res.status(200).json(profile);
     }
   ).catch(
     (error) => {
