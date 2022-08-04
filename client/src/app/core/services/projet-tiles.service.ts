@@ -15,9 +15,7 @@ export class ProjetTilesService {
 
     constructor(private http: HttpClient) {}
 
-    //Renvoie les instances crées ci-dessus
     getAllFaceSnaps(): Observable<ProjetTile[]> {
-      // return this.faceSnaps;
       return this.http.get<ProjetTile[]>('http://localhost:3000/projettiles');
     }
 
