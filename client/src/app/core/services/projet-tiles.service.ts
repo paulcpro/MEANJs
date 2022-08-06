@@ -15,7 +15,7 @@ export class ProjetTilesService {
 
     constructor(private http: HttpClient) {}
 
-    getAllFaceSnaps(): Observable<ProjetTile[]> {
+    getAllProjetTiles(): Observable<ProjetTile[]> {
       return this.http.get<ProjetTile[]>('http://localhost:3000/projettiles');
     }
 
@@ -25,7 +25,7 @@ export class ProjetTilesService {
 
     addFaceSnapFromForm(formValue: { title: string, description: string, imageUrl: string, location?: string }) : Observable<ProjetTile>
     {
-      return this.getAllFaceSnaps().pipe(
+      return this.getAllProjetTiles().pipe(
         map(projetTiles => [...projetTiles].sort((a: ProjetTile,b: ProjetTile) => a.id - b.id)),
         map(sortedProjetTiles => sortedProjetTiles[sortedProjetTiles.length - 1]),
         map(previousProjetTile => ({

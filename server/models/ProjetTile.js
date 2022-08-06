@@ -11,4 +11,4 @@ const projetTileSchema = mongoose.Schema({
         category: { type: String, required: false }
 }) 
 
-module.exports = mongoose.model('Facesnap', projetTileSchema);
+module.exports = mongoose.model('ProjetTile', projetTileSchema);

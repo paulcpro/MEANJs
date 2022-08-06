@@ -8,4 +8,4 @@ const profileSchema = mongoose.Schema({
         title: { type: Date, required: true }
 }) 
 
-module.exports = mongoose.model('Facesnap', profileSchema);
+module.exports = mongoose.model('Profile', profileSchema);
