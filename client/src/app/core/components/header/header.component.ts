@@ -8,14 +8,20 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  //Nécessite d'accéder aux routes donc appel de Router
   constructor(private route: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  onAddNewProjetTile(): void {
+    this.route.navigateByUrl('projettiles/create');
   }
 
-  onAddNewFaceSnap(): void {
-    this.route.navigateByUrl('projettiles/create');
+  onAddNewProfile(): void {
+    this.route.navigateByUrl('profiles/create');
+  }
+
+  onaddNewSlider(): void {
+    this.route.navigateByUrl('sliders/create');
   }
 
 }

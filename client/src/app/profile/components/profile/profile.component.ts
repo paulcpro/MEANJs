@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onViewFaceSnap() {
+  onViewProfile() {
     this.router.navigateByUrl(`profile/${this.profile.id}`);
   }
 

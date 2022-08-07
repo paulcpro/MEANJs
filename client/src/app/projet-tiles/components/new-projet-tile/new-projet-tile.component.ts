@@ -43,9 +43,32 @@ export class NewProjetTileComponent implements OnInit {
   onSubmitForm()
   {
     console.log(this.projetForm.value);
-    this.service.addFaceSnapFromForm(this.projetForm.value).pipe(
+    this.service.addProjetTileFromForm(this.projetForm.value).pipe(
       tap(() => this.route.navigateByUrl('/projettiles'))
       ).subscribe();
   }
 
 }
+
+
+/* CRUD EXAMPLE
+
+  angForm: FormGroup;
+  constructor(private fb: FormBuilder, private bs: BusinessService) {
+    this.createForm();
+  }
+
+  createForm() {
+    this.angForm = this.fb.group({
+      person_name: ['', Validators.required ],
+      business_name: ['', Validators.required ],
+      business_gst_number: ['', Validators.required ]
+    });
+  }
+
+  addBusiness(person_name, busines_name, business_gst_number) {
+    this.bs.addBusiness(person_name, busines_name, business_gst_number);
+  }
+
+
+*/

@@ -40,9 +40,11 @@ export class NewSliderComponent implements OnInit {
   onSubmitForm()
   {
     console.log(this.sliderForm.value);
-    this.service.addFaceSnapFromForm(this.sliderForm.value).pipe(
+    this.service.addSliderFromForm(this.sliderForm.value).pipe(
       tap(() => this.route.navigateByUrl('/sliders'))
       ).subscribe();
   }
 }
+
+
 

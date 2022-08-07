@@ -17,7 +17,7 @@ export class SliderComponent implements OnInit {
 
   }
 
-  onViewFaceSnap() {
+  onViewSlider() {
     this.router.navigateByUrl(`slider/${this.slider.id}`);
   }
 

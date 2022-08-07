@@ -14,7 +14,7 @@ export class ProjetTileListComponent implements OnInit {
   constructor(private projetTilesService: ProjetTilesService) { }
 
   ngOnInit(): void {
-    this.projetTiles$ = this.projetTilesService.getAllFaceSnaps();
+    this.projetTiles$ = this.projetTilesService.getAllProjetTiles();
   }
 
 }

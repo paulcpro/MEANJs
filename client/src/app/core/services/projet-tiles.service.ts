@@ -19,11 +19,11 @@ export class ProjetTilesService {
       return this.http.get<ProjetTile[]>('http://localhost:3000/projettiles');
     }
 
-    getFaceSnapById(projetTileId: number = 0): Observable<ProjetTile> {
+    getProjetTileById(projetTileId: number = 0): Observable<ProjetTile> {
       return this.http.get<ProjetTile>(`http://localhost:3000/projettiles/${projetTileId}`);
     }
 
-    addFaceSnapFromForm(formValue: { title: string, description: string, imageUrl: string, location?: string }) : Observable<ProjetTile>
+    addProjetTileFromForm(formValue: { title: string, description: string, imageUrl: string, location?: string }) : Observable<ProjetTile>
     {
       return this.getAllProjetTiles().pipe(
         map(projetTiles => [...projetTiles].sort((a: ProjetTile,b: ProjetTile) => a.id - b.id)),
@@ -40,3 +40,18 @@ export class ProjetTilesService {
       );
     }
 }
+
+/* CRUD EXAMPLE
+
+    addBusiness(person_name, business_name, business_gst_number) {
+    const obj = {
+      person_name: person_name,
+      business_name: business_name,
+      business_gst_number: business_gst_number
+    };
+    console.log(obj);
+    this.http.post(`${this.uri}/add`, obj)
+        .subscribe(res => console.log('Done'));
+  }
+
+*/

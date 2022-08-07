@@ -18,9 +18,8 @@ export class SingleProfileComponent implements OnInit {
               private profileService: ProfileService) { }
 
   ngOnInit(): void {
-    this.buttonText = "Oh Snap!";
     const snapId = +this.route.snapshot.params['id'];
-    this.profile$ = this.profileService.getFaceSnapById(snapId);
+    this.profile$ = this.profileService.getProfileById(snapId);
   }
 
 }

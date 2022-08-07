@@ -15,7 +15,7 @@ export class ProfileListComponent implements OnInit {
   constructor(private profileService: ProfileService) { }
 
   ngOnInit(): void {
-    this.profiles$ = this.profileService.getAllFaceSnaps();
+    this.profiles$ = this.profileService.getAllProfiles();
   }
 
 }

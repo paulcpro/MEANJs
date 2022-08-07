@@ -14,7 +14,7 @@ export class SliderListComponent implements OnInit {
   constructor(private slidersService: SliderService) { }
 
   ngOnInit(): void {
-    this.sliders$ = this.slidersService.getAllFaceSnaps();
+    this.sliders$ = this.slidersService.getAllSliders();
   }
 
 }

@@ -29,3 +29,22 @@
   <p>{{ projetTile.description }}</p>
   <p *ngIf="projetTile.location">Photoshoted at {{ projetTile.location }}</p>
 </div>
+
+
+<!-- CRUD EXAMPLE
+
+<div class="form-group">
+    <button (click)="addBusiness(person_name.value, business_name.value, business_gst_number.value)"
+        [disabled]="angForm.pristine || angForm.invalid" 
+        class="btn btn-primary">
+        Add Business
+     </button>
+</div>
+
+addBusiness is defined in the projet-tiles services.
+Call Angular service (Projet-Tiles services)
+It will send HTTP Post request to the Node.js server
+
+We define the same addBusiness methode in the component.ts
+
+-->

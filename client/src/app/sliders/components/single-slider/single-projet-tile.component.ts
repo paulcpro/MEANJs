@@ -12,15 +12,14 @@ import { ProjetTilesService } from 'src/app/core/services/projet-tiles.service';
 export class SingleSliderComponent implements OnInit {
 
   buttonText!: string;
-  projetTile$!: Observable<ProjetTile>;
+  projetTile$!: Observable<ProjetTile[]>;
 
   constructor(private route: ActivatedRoute,
               private projetTileService: ProjetTilesService) { }
 
   ngOnInit(): void {
-    this.buttonText = "Oh Snap!";
     const snapId = +this.route.snapshot.params['id'];
-    this.projetTile$ = this.projetTileService.getFaceSnapById(snapId);
+    this.projetTile$ = this.projetTileService.getAllProjetTiles();
   }
 
 }

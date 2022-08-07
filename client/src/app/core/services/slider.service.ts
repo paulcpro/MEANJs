@@ -14,19 +14,19 @@ export class SliderService {
 
     constructor(private http: HttpClient) {}
 
-    getAllFaceSnaps(): Observable<Slider[]>
+    getAllSliders(): Observable<Slider[]>
     {
       return this.http.get<Slider[]>('http://localhost:3000/sliders');
     }
 
-    getFaceSnapById(sliderId: number = 0): Observable<Slider>
+    getSliderById(sliderId: number = 0): Observable<Slider>
     {
       return this.http.get<Slider>(`http://localhost:3000/sliders/${sliderId}`);
     }
 
-    addFaceSnapFromForm(formValue: { title: string, description: string, imageUrl: string, location?: string }) : Observable<Slider>
+    addSliderFromForm(formValue: { title: string, description: string, imageUrl: string, location?: string }) : Observable<Slider>
     {
-      return this.getAllFaceSnaps().pipe(
+      return this.getAllSliders().pipe(
         map(Sliders => [...Sliders].sort((a: Slider,b: Slider) => a.id - b.id)),
         map(sortedSlider => sortedSlider[sortedSlider.length - 1]),
         map(previousSlider => ({

@@ -19,7 +19,7 @@ export class ProjetTileComponent implements OnInit {
     this.buttonText = "See more";
   }
 
-  onViewFaceSnap() {
+  onViewProjetTile() {
     this.router.navigateByUrl(`projettile/${this.projetTile.id}`);
   }
 }

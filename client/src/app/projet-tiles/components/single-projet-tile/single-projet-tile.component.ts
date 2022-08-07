@@ -18,9 +18,8 @@ export class SingleProjetTileComponent implements OnInit {
               private projetTileService: ProjetTilesService) { }
 
   ngOnInit(): void {
-    this.buttonText = "Oh Snap!";
     const snapId = +this.route.snapshot.params['id'];
-    this.projetTile$ = this.projetTileService.getFaceSnapById(snapId);
+    this.projetTile$ = this.projetTileService.getProjetTileById(snapId);
   }
 
 }

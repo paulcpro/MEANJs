@@ -43,7 +43,7 @@ export class NewProfileComponent implements OnInit {
   onSubmitForm()
   {
     console.log(this.profileForm.value);
-    this.service.addFaceSnapFromForm(this.profileForm.value).pipe(
+    this.service.addProfileFromForm(this.profileForm.value).pipe(
       tap(() => this.route.navigateByUrl('/profiles'))
       ).subscribe();
   }
