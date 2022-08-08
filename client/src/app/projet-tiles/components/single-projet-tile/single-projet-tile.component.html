@@ -1,7 +1,7 @@
 <div *ngIf="projetTile$ | async as projetTile">
   <p>Single-snap-actuality</p>
   <h2>{{projetTile.title | titlecase }}</h2>
-  <a routerLink="/projettile">Back</a>
+  <a routerLink="/projettiles">Back</a>
   <p>Mise en ligne {{projetTile.createDate | date: 'le d/MM/yyyy à HH:mm'}}</p>
   <img [src]="projetTile.imageUrl" [alt]="projetTile.title">
   <p>{{projetTile.description}}</p>
